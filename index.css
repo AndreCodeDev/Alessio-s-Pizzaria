@@ -1,147 +1,556 @@
+/* ===== VARIÁVEIS E RESET ===== */
+:root {
+  --color-primary: #e67e22;
+  --color-primary-dark: #d35400;
+  --color-secondary: #2c3e50;
+  --color-light: #ecf0f1;
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-bg: #f9f9f9;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--color-text);
+  line-height: 1.6;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-list a {
+  color: var(--color-white);
+  font-weight: 500;
+  transition: var(--transition);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: var(--transition);
+}
+
+.nav-list a:hover::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/pexels-narda-yescas-1566837.jpg') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-white);
+  padding-top: 80px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-text {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== BOTÕES ===== */
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.cta-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.cta-button:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.cta-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== SEÇÕES ===== */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  color: var(--color-secondary);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-primary);
+  margin: 1rem auto;
+}
+
+/* ===== MENU SECTION ===== */
+.menu-section {
+  background-color: var(--color-bg);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.menu-item {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-item-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.menu-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.menu-item:hover .menu-item-image img {
+  transform: scale(1.05);
+}
+
+.menu-item-content {
+  padding: 1.5rem;
+}
+
+.menu-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary);
+}
+
+.menu-item p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.price {
+  display: block;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/pexels-eneida-nieves-905847.jpg') no-repeat center center/cover;
+  color: var(--color-white);
+  position: relative;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.about-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.highlight {
+  text-align: center;
+  max-width: 200px;
+}
+
+.highlight i {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-secondary);
+}
+
+.contact-info p {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-info i {
+  color: var(--color-primary);
+  width: 20px;
+  text-align: center;
+}
+
+.contact-map {
+  height: 400px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  padding: 3rem 0 1.5rem;
+  margin-top: auto;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social a {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Créditos do desenvolvedor */
+.developer-credits {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.developer-credits a {
+  color: var(--color-primary);
+  transition: var(--transition);
+}
+
+.developer-credits a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 992px) {
+  .nav-list {
+    gap: 1.5rem;
   }
-  
-  :root {
-    --color-primary: #ffa500;
-    --color-dark: #232323;
-    --color-light: #eaeaea;
-    --color-white: #fff;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
   }
-  
-  html {
-    scroll-behavior: smooth;
+
+  .nav-list {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: var(--color-secondary);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: var(--transition);
+    z-index: 999;
   }
-  
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  .nav-list.active {
+    left: 0;
   }
-  
-  a {
-    color: var(--color-primary);
-  }
-  
-  header {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 1.5rem 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    text-align: center;
-  }
-  
-  nav li {
-    display: inline;
-    margin: 0 1.5rem;
-  }
-  
-  nav a {
-    text-decoration: none;
-    font-weight: 700;
-  }
-  
+
   .hero {
-    background-image: url("img/pexels-narda-yescas-1566837.jpg");
-    background-size: cover;
-    color: var(--color-white);
-    min-height: 75vh;
-    padding: 10rem 0;
-    text-align: center;
+    padding-top: 80px;
   }
-  
-  .hero h1 {
-    font-size: 4rem;
-    font-weight: 100;
+
+  .hero-title {
+    font-size: 2.5rem;
   }
-  
-  .hero p {
-    font-size: 1.5rem;
-    margin-top: 1.5rem;
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
-  
+
+  .contact-map {
+    height: 300px;
+    order: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .cta-button {
-    background-color: var(--color-primary);
-    border-radius: .5rem;
-    color: var(--color-dark);
-    display: inline-block;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    padding: .75rem 1.5rem;
-    text-decoration: none;
-  }
-  
-  section:not(#home) {
-    padding: 4rem;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  p {
-    font-size: 1.25rem;
-  }
-  
-  .menu-list {
-    list-style: none;
-  }
-  
-  .menu-list > li {
-    background-color: var(--color-light);
-    border-radius: .5rem;
-    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    margin: 1.5rem;
-    height: 28rem;
-    width: 28rem;
-    text-align: left;
-  }
-  
-  .menu-list img {
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-    object-fit: cover;
     width: 100%;
   }
-  
-  .menu-list h3,
-  .menu-list p {
-    padding: 1rem 1.25rem 0;
+
+  .section {
+    padding: 3rem 0;
   }
-  
-  #about {
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-      ),
-      url("img/pexels-eneida-nieves-905847.jpg");
-    background-size: cover;
-    background-position: center;
-    color: var(--color-white);
+
+  .about-highlights {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
-  
-  address {
-    margin: 2rem 0;
-    font-style: italic;
-  }
-  
-  address > * {
-    display: inline-block;
-    margin: 1.5rem;
-    text-align: left;
-  }
-  
-  footer {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 2rem;
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1.5rem;
     text-align: center;
   }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ===== CORREÇÕES ESPECÍFICAS ===== */
+/* Garante que o footer fique no rodapé */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Corrige o problema de altura do hero em mobile */
+@media (max-height: 600px) {
+  .hero {
+    min-height: 600px;
+  }
+}
+
+/* Corrige o espaçamento entre itens do menu */
+.menu-item-content {
+  padding: 1.5rem;
+}
+
+/* Melhora a visualização do preço */
+.price {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+}
+
+/* Adiciona hover nos itens do menu */
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}

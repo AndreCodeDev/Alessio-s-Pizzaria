@@ -1,136 +1,184 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alessio's Pizzaria</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#menu">Cardápio</a></li>
-        <li><a href="#about">Sobre Nós</a></li>
-        <li><a href="#contact">Contato</a></li>
-      </ul>
-    </nav>
+  <header class="header">
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">Alessio's</div>
+        <button class="menu-toggle" aria-label="Abrir menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Cardápio</a></li>
+          <li><a href="#about">Sobre Nós</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="home">
-    <div class="hero">
-      <h1>Bem-vindo à Alessio's</h1>
-      <p>Saborosas pizzas feitas especialmente para você!</p>
-      <a href="#menu" class="cta-button">Ver Cardápio</a>
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Bem-vindo à Alessio's</h1>
+      <p class="hero-text">Saborosas pizzas feitas especialmente para você!</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="cta-button">Ver Cardápio</a>
+        <a href="tel:+551155555555" class="cta-button secondary">Ligar Agora</a>
+      </div>
     </div>
   </section>
 
-  <section id="menu">
-    <h2>Cardápio</h2>
-    <ul class="menu-list">
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita">
-        <h3>Pizza Margherita</h3>
-        <p>Molho de tomate, mussarela, manjericão fresco.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Pepperoni">
-        <h3>Pizza Pepperoni</h3>
-        <p>Molho de tomate, pepperoni, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Quatro Queijos">
-        <h3>Pizza Quatro Queijos</h3>
-        <p>Molho de tomate, mussarela, parmesão, gorgonzola, provolone.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Calabresa">
-        <h3>Pizza Calabresa</h3>
-        <p>Molho de tomate, calabresa, cebola, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Vegetariana">
-        <h3>Pizza Vegetariana</h3>
-        <p>Molho de tomate, pimentões, cogumelos, azeitonas, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Frango com Catupiry">
-        <h3>Pizza Frango com Catupiry</h3>
-        <p>Molho de tomate, frango desfiado, catupiry, milho, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Portuguesa">
-        <h3>Pizza Portuguesa</h3>
-        <p>Molho de tomate, presunto, ovos, cebola, azeitonas, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Supreme">
-        <h3>Pizza Supreme</h3>
-        <p>Molho de tomate, pepperoni, pimentões, cebola roxa, azeitonas, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Tropical">
-        <h3>Pizza Tropical</h3>
-        <p>Molho de tomate, presunto, abacaxi, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita Especial">
-        <h3>Pizza Margherita Especial</h3>
-        <p>Molho de tomate, mussarela de búfala, tomate fresco, manjericão, azeite de oliva.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Carne de Sol">
-        <h3>Pizza Carne de Sol</h3>
-        <p>Molho de tomate, carne de sol desfiada, cebola roxa, queijo mussarela.</p>
-      </li>
-      <li>
-        <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Caprese">
-        <h3>Pizza Caprese</h3>
-        <p>Molho de tomate, tomate fresco, mussarela de búfala, manjericão, azeite de oliva.</p>
-      </li>
-    </ul>
-  </section>
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <h2 class="section-title">Nosso Cardápio</h2>
+      <div class="menu-grid">
+        <!-- Itens do menu repetidos 12x -->
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
 
-  <section id="about">
-    <h2>Sobre Nós</h2>
-    <p>Nossa pizzaria é dedicada a criar as melhores pizzas do mundo, com ingredientes frescos e receitas exclusivas.
-    </p>
-  </section>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
 
-  <section id="contact">
-    <h2>Contato</h2>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
 
-    <p>Entre em contato conosco para fazer pedidos ou tirar suas dúvidas.</p>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
 
-    <address>
-      <p>
-        <strong>Endereço:</strong>
-        Avenida Onze de Outubro, nº 123<br>
-        Centro, Cidade Qualquer/RJ CEP: 12345-678
-      </p>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
 
-      <div>
-        <p><strong>Telefone:</strong> (11) 5555-5555</p>
-        <p>
-          <strong>E-mail:</strong>
-          <a href="mailto:contato@alessios.pizza">contato@alessios.pizza</a>
-        </p>
+        <div class="menu-item">
+          <div class="menu-item-image">
+            <img src="img/pexels-engin-akyurt-2260208.jpg" alt="Pizza Margherita" loading="lazy">
+          </div>
+          <div class="menu-item-content">
+            <h3>Pizza Margherita</h3>
+            <p>Molho de tomate, mussarela, manjericão fresco.</p>
+            <span class="price">R$ 45,90</span>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <p><strong>Horário de Funcionamento:</strong></p>
-        <p>Segunda a Sábado: 11h00 às 23h00 - Domingo: 16h00 às 23h00</p>
-        <p></p>
-      </div>
-    </address>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2024 Alessio's Pizzaria</p>
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">Sobre Nós</h2>
+      <div class="about-content">
+        <p>Fundada em 1995, a Alessio's Pizzaria é dedicada a criar as melhores pizzas artesanais, com ingredientes frescos e receitas exclusivas da família Alessio.</p>
+        <div class="about-highlights">
+          <div class="highlight">
+            <i class="fas fa-fire"></i>
+            <p>Forno a lenha tradicional</p>
+          </div>
+          <div class="highlight">
+            <i class="fas fa-leaf"></i>
+            <p>Ingredientes frescos</p>
+          </div>
+          <div class="highlight">
+            <i class="fas fa-star"></i>
+            <p>Receitas exclusivas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Informações</h3>
+          <address>
+            <p><i class="fas fa-map-marker-alt"></i> Avenida Onze de Outubro, nº 123</p>
+            <p><i class="fas fa-phone"></i> (11) 5555-5555</p>
+            <p><i class="fas fa-envelope"></i> contato@alessios.pizza</p>
+          </address>
+          
+          <h3>Horário de Funcionamento</h3>
+          <p><i class="fas fa-clock"></i> Seg-Sáb: 11h às 23h</p>
+          <p><i class="fas fa-clock"></i> Dom: 16h às 23h</p>
+        </div>
+        
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.376415404274!2d-46.6658229240066!3d-23.55488957880793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce582b4835b5a9%3A0x9e6d5a3a5dfa4f1d!2sAv.%20Onze%20de%20Outubro%2C%20123%20-%20Vila%20Mariana%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004018-000!5e0!3m2!1spt-BR!2sbr!4v1681234567890!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Alessio's Pizzaria</div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; 2024 Alessio's Pizzaria. Todos os direitos reservados.
+    </div>
+    
+    <div class="developer-credits">
+      Desenvolvido por <a href="https://andrecode.dev.br" target="_blank" rel="noopener noreferrer">andrecode.dev.br</a>
+    </div>
   </footer>
-</body>
 
+  <script src="index.js"></script>
+</body>
 </html>
